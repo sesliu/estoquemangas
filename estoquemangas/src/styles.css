@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+	margin: 0;
+	padding:  0;
+}
+
+.clear{
+	clear: both;
+	margin: 0;
+	padding: 0;
+	width: 0;
+	height: 0;
+}
+
+.fontzero{
+	font-size: 0em;
+	float: left;
+}
+
+/* STRUCT */
+
+html, body{
+	font-family: 'Lato', sans-serif;
+	height: 100%;
+	background-color: #F5F5F5;
+}
+
+.container{
+	width: 50%;
+	height: 700px;
+	position: relative;
+	float: left;
+}
