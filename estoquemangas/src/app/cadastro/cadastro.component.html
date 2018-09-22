@@ -1,3 +1,44 @@
-<p>
-  cadastro works!
-</p>
+<div class="container">
+	<h2>Estoque Mangás</h2>
+	<p>Novo por aqui?</p>
+</div>
+
+<div class="container">
+	<form action="" method="POST">
+		<legend><h3>Efetue o seu cadastro.</h3></legend>
+		<label for="primeiroNome">
+			<input type="text" name="primeiroNome" placeholder="Insira o seu primeiro nome" maxlength="50" required>
+		</label>
+		<label for="ultimoNome">
+			<input type="text" name="ultimoNome" placeholder="Insira o seu último nome" maxlength="50" required>
+		</label>
+		<label for="email">
+			<input type="email" name="email" placeholder="Insira o seu e-mail" maxlength="150" required>
+		</label>
+		<p>Telefone Fixo</p>
+		<div class="telefone">
+			<label for="dddFixo">
+				<input type="text" name="dddFixo" placeholder="Ddd" maxlength="2">
+			</label>
+			<label for="telefoneFixo">
+				<input type="text" name="telefoneFixo" placeholder="Tel. fixo" maxlength="8">
+			</label>	
+		</div>
+		<p>Telefone Celular</p>
+		<div class="telefone">
+			<label for="dddCelular">
+				<input type="text" name="dddCelular" placeholder="Ddd" maxlength="2">
+			</label>
+			<label for="telefoneCelular">
+				<input type="text" name="telefoneCelular" placeholder="Tel. celular" maxlength="9">
+			</label>
+		</div>
+		<label for="senha">
+			<input type="password" name="senha" placeholder="Insira a sua senha" maxlength="32" required>
+		</label>
+		<label for="senhaConfirma">
+			<input type="password" name="senhaConfirma" placeholder="Insira novamente a sua senha" maxlength="32" required>
+		</label>
+		<button type="submit">Efetuar cadastro</button>
+	</form>
+</div>
