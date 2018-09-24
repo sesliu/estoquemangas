@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '@uirouter/core';
+import { EndpointsService } from '../endpoints.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public AutenticarUsuarioRequest : any  = {};
+
+  constructor(private rota: StateService, private webservices : EndpointsService ) { }
 
   ngOnInit() {
   }
 
-}
+
+  autenticar(){
+
+    this.webservices.autenticarLogin(this.AutenticarUsuarioRequest).then( request =>{
+
+          console.log(request)});
+    };
+    
+  }
+
+
+
+

@@ -74,6 +74,18 @@
 	float: left;
 }
 
+.container form .mensagem{
+	width: 600px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	position: relative;
+	text-align: center;
+	color: red;
+	float: left;
+}
+
 .container form .telefone input[name="dddFixo"], .container form .telefone input[name="dddCelular"]{
 	width: 40px;
 	margin-left: 190px;

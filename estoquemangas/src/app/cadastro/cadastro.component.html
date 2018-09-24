@@ -4,41 +4,58 @@
 </div>
 
 <div class="container">
-	<form action="" method="POST">
-		<legend><h3>Efetue o seu cadastro.</h3></legend>
+	<form let #formCadastro="ngForm">
+		<legend>
+			<h3>Efetue o seu cadastro.</h3>
+		</legend>
 		<label for="primeiroNome">
-			<input type="text" name="primeiroNome" placeholder="Insira o seu primeiro nome" maxlength="50" required>
+			<input type="text" name="primeiroNome" [(ngModel)]="AdicionarUsuarioRequest.primeiroNome" placeholder="Insira o seu primeiro nome"
+			 maxlength="50" required>
 		</label>
 		<label for="ultimoNome">
-			<input type="text" name="ultimoNome" placeholder="Insira o seu último nome" maxlength="50" required>
+			<input type="text" name="ultimoNome" [(ngModel)]="AdicionarUsuarioRequest.ultimoNome" placeholder="Insira o seu último nome"
+			 maxlength="50" required>
 		</label>
 		<label for="email">
-			<input type="email" name="email" placeholder="Insira o seu e-mail" maxlength="150" required>
+			<input type="email" name="email" [(ngModel)]="AdicionarUsuarioRequest.email" placeholder="Insira o seu e-mail" maxlength="150"
+			 required>
 		</label>
 		<p>Telefone Fixo</p>
 		<div class="telefone">
 			<label for="dddFixo">
-				<input type="text" name="dddFixo" placeholder="Ddd" maxlength="2">
+				<input type="text" mask="00" [(ngModel)]="AdicionarUsuarioRequest.dddFixo" name="dddFixo" placeholder="Ddd" maxlength="2">
 			</label>
 			<label for="telefoneFixo">
-				<input type="text" name="telefoneFixo" placeholder="Tel. fixo" maxlength="8">
-			</label>	
+				<input type="text" mask="00000000" [(ngModel)]="AdicionarUsuarioRequest.telefoneFixo" name="telefoneFixo" placeholder="Tel. fixo"
+				 maxlength="8">
+			</label>
 		</div>
 		<p>Telefone Celular</p>
 		<div class="telefone">
 			<label for="dddCelular">
-				<input type="text" name="dddCelular" placeholder="Ddd" maxlength="2">
+				<input type="text" mask="00" [(ngModel)]="AdicionarUsuarioRequest.dddCelular" name="dddCelular" placeholder="Ddd" maxlength="2">
 			</label>
 			<label for="telefoneCelular">
-				<input type="text" name="telefoneCelular" placeholder="Tel. celular" maxlength="9">
+				<input type="text" mask="000000000" [(ngModel)]="AdicionarUsuarioRequest.telefoneCelular" name="telefoneCelular" placeholder="Tel. celular"
+				 maxlength="9">
 			</label>
 		</div>
 		<label for="senha">
-			<input type="password" name="senha" placeholder="Insira a sua senha" maxlength="32" required>
+			<input type="password" (keyup)="senhaNaoConfere = false"  [(ngModel)]="AdicionarUsuarioRequest.senha" name="senha"
+			 placeholder="Insira a sua senha"  minlength="8"  maxlength="32" required>
 		</label>
 		<label for="senhaConfirma">
-			<input type="password" name="senhaConfirma" placeholder="Insira novamente a sua senha" maxlength="32" required>
+			<input type="password" (keyup)="senhaNaoConfere = false"  (blur)="verificarSenha()" [(ngModel)]="senhaConfirma"
+			 name="senhaConfirma" placeholder="Insira novamente a sua senha" minlength="8"  maxlength="32" required>
+
 		</label>
-		<button type="submit">Efetuar cadastro</button>
+		<div class="mensagem" *ngIf="senhaNaoConfere">
+			<h4>Senha não confere</h4>
+		</div>
+
+
+		<button type="submit" [disabled]="formCadastro.form.invalid" [ngClass]="{ disabled: AdicionarUsuarioRequest.senha != senhaConfirma}"
+		 (click)="efetuarCadastro()">Efetuar cadastro</button>
 	</form>
+
 </div>

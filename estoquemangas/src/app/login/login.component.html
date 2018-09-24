@@ -1,20 +1,23 @@
 <div class="container">
 	<h2>Estoque Mangás</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dolores asperiores itaque maiores laborum porro quam. Rem eveniet, quos alias, ex praesentium, fugiat, fuga dolores sequi a ipsa magni at.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dolores asperiores itaque maiores laborum porro
+		quam. Rem eveniet, quos alias, ex praesentium, fugiat, fuga dolores sequi a ipsa magni at.</p>
 </div>
 
 <div class="container">
 	<div class="loginBox">
-		<form action="" method="POST">
-		<legend><p>Efetue o Login.</p></legend>
-		<label for="email">
-			<input type="email" name="email" placeholder="Insira o seu e-mail" required>
-		</label>
-		<label for="senha">
-			<input type="password" name="senha" placeholder="Insira sua Senha" maxlength="32" required>
-		</label>
-		<button type="submit">Efetuar Login</button>
-	</form>
-	<a href="">Esqueci minha senha.</a>
-	</div>		
+		<form  let #formLogin = "ngForm" >
+			<legend>
+				<p>Efetue o Login.</p>
+			</legend>
+			<label for="email">
+				<input type="email" name="email" placeholder="Insira o seu e-mail" [(ngModel)] ="AutenticarUsuarioRequest.email" required >
+			</label>
+			<label for="senha">
+				<input type="password" name="senha" placeholder="Insira sua Senha" [(ngModel)] ="AutenticarUsuarioRequest.senha" maxlength="32" required>
+			</label>
+			<button type="submit" [disabled] = "formLogin.form.invalid" (click) = "autenticar()">Efetuar Login</button>
+		</form>
+		<a href="" uiSref="alteraSenha">Esqueci minha senha.</a>
+	</div>
 </div>
